@@ -31,7 +31,7 @@ function Index() {
       <header className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/70 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="#top" className="flex items-center gap-3 font-display text-base font-bold tracking-tight">
-            <img src={logo} alt="Tucker Business Services" className="h-10 w-10 object-contain invert" />
+            <img src={logo} alt="Tucker Business Services" className="h-16 w-16 md:h-20 md:w-20 object-contain invert" />
             <span className="hidden sm:inline">Tucker Business Services</span>
           </a>
           <nav className="hidden gap-8 text-sm text-muted-foreground md:flex">
