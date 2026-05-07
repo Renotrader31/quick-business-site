@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero.jpg";
+import logo from "@/assets/logo.png";
 import { ArrowRight, Building2, Calculator, ClipboardList, FileSpreadsheet, HardHat, Mail, MapPin, Phone } from "lucide-react";
 
 export const Route = createFileRoute("/")({
