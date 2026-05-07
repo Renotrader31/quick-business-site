@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero.jpg";
+import logo from "@/assets/logo.png";
 import { ArrowRight, Building2, Calculator, ClipboardList, FileSpreadsheet, HardHat, Mail, MapPin, Phone } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -29,9 +30,9 @@ function Index() {
       {/* Nav */}
       <header className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/70 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a href="#top" className="flex items-center gap-2 font-display text-lg font-bold tracking-tight">
-            <span className="inline-block h-2 w-2 rounded-full bg-accent" />
-            Tucker<span className="text-muted-foreground font-normal">/BS</span>
+          <a href="#top" className="flex items-center gap-3 font-display text-base font-bold tracking-tight">
+            <img src={logo} alt="Tucker Business Services" className="h-10 w-10 object-contain invert" />
+            <span className="hidden sm:inline">Tucker Business Services</span>
           </a>
           <nav className="hidden gap-8 text-sm text-muted-foreground md:flex">
             <a href="#services" className="hover:text-foreground transition">Services</a>
