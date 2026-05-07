@@ -17,8 +17,8 @@ export const Route = createFileRoute("/")({
 
 const services = [
   { icon: FileSpreadsheet, title: "Bookkeeping & AP/AR", desc: "Job-costed books, invoicing, lien waivers, and clean monthly closes." },
-  { icon: Calculator, title: "Payroll & Compliance", desc: "Certified payroll, multi-state filings, and contractor-specific reporting." },
-  { icon: ClipboardList, title: "Estimating Support", desc: "Takeoffs, bid prep, and proposal polish so you win the right work." },
+  { icon: Calculator, title: "Payroll & Compliance", desc: "Contractor-specific payroll processing and reporting you can rely on." },
+  { icon: ClipboardList, title: "Estimating Support", desc: "Bid prep and proposal polish so you win the right work." },
   { icon: HardHat, title: "Construction Consulting", desc: "Project controls, schedule analysis, and operational tune-ups." },
   { icon: Building2, title: "Owner Advisory", desc: "Profitability reviews, KPI dashboards, and growth roadmaps." },
   { icon: ClipboardList, title: "Document Control", desc: "RFIs, submittals, change orders — organized and on time." },
