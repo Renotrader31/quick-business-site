@@ -1,6 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroImg from "@/assets/hero.jpg";
 import logo from "@/assets/logo.png";
+import bookkeepingImg from "@/assets/service-bookkeeping.jpg";
+import estimatingImg from "@/assets/service-estimating.jpg";
+import consultingImg from "@/assets/service-consulting.jpg";
+import advisoryImg from "@/assets/service-advisory.jpg";
+import documentsImg from "@/assets/service-documents.jpg";
 import { ArrowRight, Building2, Calculator, ClipboardList, FileSpreadsheet, HardHat, Mail, MapPin, Phone } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -16,12 +21,11 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { icon: FileSpreadsheet, title: "Bookkeeping & AP/AR", desc: "Job-costed books, invoicing, lien waivers, and clean monthly closes." },
-  
-  { icon: ClipboardList, title: "Estimating Support", desc: "Bid prep and proposal polish so you win the right work." },
-  { icon: HardHat, title: "Construction Consulting", desc: "Project controls, schedule analysis, and operational tune-ups." },
-  { icon: Building2, title: "Owner Advisory", desc: "Profitability reviews, KPI dashboards, and growth roadmaps." },
-  { icon: ClipboardList, title: "Document Control", desc: "RFIs, submittals, change orders — organized and on time." },
+  { icon: FileSpreadsheet, image: bookkeepingImg, title: "Bookkeeping & AP/AR", desc: "Job-costed books, invoicing, lien waivers, and clean monthly closes." },
+  { icon: ClipboardList, image: estimatingImg, title: "Estimating Support", desc: "Bid prep and proposal polish so you win the right work." },
+  { icon: HardHat, image: consultingImg, title: "Construction Consulting", desc: "Project controls, schedule analysis, and operational tune-ups." },
+  { icon: Building2, image: advisoryImg, title: "Owner Advisory", desc: "Profitability reviews, KPI dashboards, and growth roadmaps." },
+  { icon: ClipboardList, image: documentsImg, title: "Document Control", desc: "RFIs, submittals, change orders — organized and on time." },
 ];
 
 function Index() {
@@ -114,11 +118,21 @@ function Index() {
           </div>
 
           <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
-            {services.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="group relative bg-card p-8 transition hover:bg-secondary">
-                <Icon className="h-8 w-8 text-accent" strokeWidth={1.5} />
-                <h3 className="mt-6 font-display text-xl font-semibold">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+            {services.map(({ icon: Icon, image, title, desc }) => (
+              <div key={title} className="group relative bg-card transition hover:bg-secondary">
+                <img
+                  src={image}
+                  alt={title}
+                  width={800}
+                  height={600}
+                  loading="lazy"
+                  className="aspect-[4/3] w-full object-cover"
+                />
+                <div className="p-8">
+                  <Icon className="h-8 w-8 text-accent" strokeWidth={1.5} />
+                  <h3 className="mt-6 font-display text-xl font-semibold">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{desc}</p>
+                </div>
               </div>
             ))}
           </div>
