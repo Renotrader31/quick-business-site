@@ -117,9 +117,9 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map(({ icon: Icon, image, title, desc }) => (
-              <div key={title} className="group relative bg-card transition hover:bg-secondary">
+              <div key={title} className="group relative overflow-hidden rounded-2xl border border-border bg-card transition hover:bg-secondary">
                 <img
                   src={image}
                   alt={title}
@@ -178,7 +178,7 @@ function Index() {
               <a href="mailto:info@tuckerbusinessservices.com" className="group rounded-2xl border border-border bg-background p-6 transition hover:border-accent">
                 <Mail className="h-6 w-6 text-accent" />
                 <div className="mt-4 text-xs uppercase tracking-wider text-muted-foreground">Email</div>
-                <div className="mt-1 font-semibold group-hover:text-accent transition break-all">info@tuckerbusinessservices.com</div>
+                <div className="mt-1 font-semibold group-hover:text-accent transition text-sm whitespace-nowrap">info@tuckerbusinessservices.com</div>
               </a>
               <a href="tel:+17753432748" className="group rounded-2xl border border-border bg-background p-6 transition hover:border-accent">
                 <Phone className="h-6 w-6 text-accent" />
