@@ -56,11 +56,7 @@ function Index() {
 
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[1.1fr_1fr] lg:items-center">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-4 py-1.5 text-xs uppercase tracking-widest text-muted-foreground">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-              Built for contractors
-            </span>
-            <h1 className="mt-6 font-display text-5xl font-bold leading-[1.05] md:text-7xl">
+            <h1 className="font-display text-5xl font-bold leading-[1.05] md:text-7xl">
               Run the business.
               <br />
               <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-accent)" }}>
@@ -155,11 +151,6 @@ function Index() {
             <p>
               We speak the language of estimates, change orders, retention, and bonded work. That means cleaner books, sharper bids, and decisions backed by numbers you can actually trust.
             </p>
-            <div className="flex flex-wrap gap-3 pt-4">
-              {["GC & Subs", "Residential", "Commercial", "Specialty Trades"].map((tag) => (
-                <span key={tag} className="rounded-full border border-border bg-card px-4 py-1.5 text-sm text-foreground">{tag}</span>
-              ))}
-            </div>
           </div>
         </div>
       </section>
