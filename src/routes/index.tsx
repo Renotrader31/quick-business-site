@@ -117,9 +117,9 @@ function Index() {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map(({ icon: Icon, image, title, desc }) => (
-              <div key={title} className="group relative bg-card transition hover:bg-secondary">
+              <div key={title} className="group relative overflow-hidden rounded-2xl border border-border bg-card transition hover:bg-secondary">
                 <img
                   src={image}
                   alt={title}
