@@ -193,7 +193,7 @@ function Index() {
             </div>
 
             <div className="mt-10">
-              <a href="mailto:hello@tuckerbusinessservices.com" className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-foreground transition hover:opacity-90" style={{ boxShadow: "var(--shadow-glow)" }}>
+              <a href="mailto:info@tuckerbusinessservices.com" className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-foreground transition hover:opacity-90" style={{ boxShadow: "var(--shadow-glow)" }}>
                 Start the conversation <ArrowRight className="h-4 w-4" />
               </a>
             </div>
