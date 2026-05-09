@@ -171,10 +171,10 @@ function Index() {
                 <div className="mt-4 text-xs uppercase tracking-wider text-muted-foreground">Email</div>
                 <div className="mt-1 font-semibold group-hover:text-accent transition text-sm whitespace-nowrap">info@tuckerbusinessservices.com</div>
               </a>
-              <a href="tel:+17753432748" className="group rounded-2xl border border-border bg-background p-6 transition hover:border-accent">
+              <a href="tel:+17753910242" className="group rounded-2xl border border-border bg-background p-6 transition hover:border-accent">
                 <Phone className="h-6 w-6 text-accent" />
                 <div className="mt-4 text-xs uppercase tracking-wider text-muted-foreground">Phone</div>
-                <div className="mt-1 font-semibold group-hover:text-accent transition">(775) 343-2748</div>
+                <div className="mt-1 font-semibold group-hover:text-accent transition">(775) 391-0242</div>
               </a>
               <div className="rounded-2xl border border-border bg-background p-6">
                 <MapPin className="h-6 w-6 text-accent" />
