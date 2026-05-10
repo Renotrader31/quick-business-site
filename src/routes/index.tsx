@@ -6,7 +6,13 @@ import estimatingImg from "@/assets/service-estimating.jpg";
 import consultingImg from "@/assets/service-consulting.jpg";
 import advisoryImg from "@/assets/service-advisory.jpg";
 import documentsImg from "@/assets/service-documents.jpg";
-import { ArrowRight, Building2, Calculator, ClipboardList, FileSpreadsheet, HardHat, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowRight, Building2, Calculator, ClipboardList, FileSpreadsheet, HardHat, HelpCircle, Mail, MapPin, Phone } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -28,6 +34,33 @@ const services = [
   { icon: HardHat, image: consultingImg, title: "Construction Consulting", desc: "Project controls, schedule analysis, and operational tune-ups." },
   { icon: Building2, image: advisoryImg, title: "Owner Advisory", desc: "Profitability reviews, KPI dashboards, and growth roadmaps." },
   { icon: ClipboardList, image: documentsImg, title: "Document Control", desc: "RFIs, submittals, change orders — organized and on time." },
+];
+
+const faqs = [
+  {
+    q: "How do I invoice a small construction project?",
+    a: "For most small projects, AIA-style billing (G702/G703 forms) is the gold standard — it tracks contract value, work completed to date, retention, and pay applications in the format owners and lenders expect. On simpler jobs a clean progress invoice with itemized line items, signed change orders, and the appropriate lien waivers is enough. The keys: invoice on a consistent schedule (usually monthly), reference the contract or change order precisely, and never send the invoice without the lien waiver attachment your state requires. Tucker Business Services handles AIA billing, progress invoicing, and lien waiver tracking so contractors never leave money on the table.",
+  },
+  {
+    q: "How do I manage the costing of a construction project?",
+    a: "The answer is job costing — tagging every labor hour, material order, equipment charge, and overhead expense to a specific job and phase as it happens. That's how you see project profitability in real time instead of guessing until close-out. Most QuickBooks installations don't do this out of the box; it takes properly configured customer/job hierarchies, cost codes, and item lists. Tucker Business Services sets up and runs job costing in QuickBooks (or whatever system you're on) so you can steer toward the jobs that actually make money.",
+  },
+  {
+    q: "Is a construction project manager expensive?",
+    a: "A full-time construction project manager typically costs $80K–$150K in salary, plus benefits, vehicle, equipment, and overhead — often $200K+ all-in. For most small and mid-sized contractors, that's more than the role generates in margin in year one. The alternative most growing contractors use: fractional project controls — schedule analysis, job tracking, change order management, and documentation discipline of a PM, paid hourly or monthly, without the headcount. Tucker Business Services provides project controls and consulting on a fractional basis so you get the discipline without the payroll.",
+  },
+  {
+    q: "Is there a way to manage a construction project from bidding to completion?",
+    a: "Yes — and the trick is treating it as one connected workflow rather than five disconnected tools. Bid feeds the contract, contract feeds job setup and budgets, budgets feed real-time job costing, job costing feeds change orders and progress billing, and progress billing feeds closeout. The pieces are familiar (Excel, QuickBooks, Procore, Buildertrend), but most contractors lose money in the handoffs between them. Tucker Business Services connects bid, books, and ops so nothing falls through the cracks.",
+  },
+  {
+    q: "Do I need permits for my construction project?",
+    a: "Almost always yes for any work involving structure, electrical, plumbing, mechanical systems, or footprint changes — even on residential remodels. Cosmetic-only work (paint, flooring, cabinet swaps without electrical or plumbing) usually doesn't. Permitting rules are local, so check with your city or county building department, and confirm in your contracts whether you, the owner, or specific subcontractors are responsible for pulling each one. Tucker Business Services doesn't pull permits, but we help organize the paperwork around them — RFIs, submittals, and document control so the file is ready when inspectors arrive.",
+  },
+  {
+    q: "How do I find subcontractors to work on my project?",
+    a: "Three reliable sources: existing trade referrals (your supply house, your bonding agent, fellow GCs you trust), local trade associations (AGC, ABC, NAHB chapters), and vetted directories like BlueBook or ConstructConnect. Always pre-qualify before the bid — confirm active license, current insurance, bonding capacity, references, and recent job history. Tucker Business Services doesn't connect you with subs directly, but we help streamline the management side: subcontractor bid analysis, AP setup, lien waiver tracking, and year-end 1099 prep once your roster is in place.",
+  },
 ];
 
 const businessJsonLd = {
@@ -85,12 +118,29 @@ const businessJsonLd = {
   },
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: f.a,
+    },
+  })),
+};
+
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       {/* Nav */}
@@ -102,6 +152,7 @@ function Index() {
           </a>
           <nav className="hidden gap-8 text-sm text-muted-foreground md:flex">
             <a href="#services" className="hover:text-foreground transition">Services</a>
+            <a href="#faq" className="hover:text-foreground transition">FAQ</a>
             <a href="#about" className="hover:text-foreground transition">About</a>
             <a href="#contact" className="hover:text-foreground transition">Contact</a>
           </nav>
@@ -194,6 +245,51 @@ function Index() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="border-t border-border/50 py-24 md:py-32">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <span className="text-xs uppercase tracking-widest text-accent">/ FAQ</span>
+              <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">Contractor questions, answered.</h2>
+            </div>
+            <p className="max-w-md text-muted-foreground">
+              The stuff our clients ask before they hire us — and a few things we just think you should know.
+            </p>
+          </div>
+
+          <div className="mt-12 rounded-2xl border border-border bg-card p-2 md:p-4">
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((faq, i) => (
+                <AccordionItem
+                  key={faq.q}
+                  value={`item-${i}`}
+                  className="border-b border-border last:border-b-0"
+                >
+                  <AccordionTrigger className="px-4 py-5 text-left text-base font-semibold md:text-lg hover:no-underline">
+                    <span className="flex items-start gap-3">
+                      <HelpCircle className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
+                      <span>{faq.q}</span>
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-4 pb-5 pl-12 text-sm leading-relaxed text-muted-foreground md:text-base">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+
+          <p className="mt-10 text-center text-sm text-muted-foreground">
+            Got a question that's not here?{" "}
+            <a href="#contact" className="font-semibold text-accent hover:underline">
+              Reach out
+            </a>{" "}
+            — we answer every one.
+          </p>
         </div>
       </section>
 
