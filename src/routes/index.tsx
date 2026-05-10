@@ -11,10 +11,12 @@ import { ArrowRight, Building2, Calculator, ClipboardList, FileSpreadsheet, Hard
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tucker Business Services — Back Office & Construction Consulting" },
-      { name: "description", content: "Back office support and construction consulting for contractors. Tucker Business Services helps you run a tighter, more profitable build." },
-      { property: "og:title", content: "Tucker Business Services" },
-      { property: "og:description", content: "Back office support and construction consulting built for contractors." },
+      { title: "Tucker Business Services — Construction Bookkeeping & Back Office for Contractors" },
+      { name: "description", content: "Construction bookkeeping, job costing, estimating support, and consulting built for contractors. Tucker Business Services keeps your jobs profitable and your back office off your plate." },
+      { property: "og:title", content: "Tucker Business Services — Back Office Built for Contractors" },
+      { property: "og:description", content: "Construction bookkeeping, job costing, estimating support, and consulting for contractors. Run the business — we'll handle the back office." },
+      { property: "og:url", content: "https://tuckerbusinessservices.com" },
+      { property: "og:type", content: "website" },
     ],
   }),
   component: Index,
@@ -28,14 +30,74 @@ const services = [
   { icon: ClipboardList, image: documentsImg, title: "Document Control", desc: "RFIs, submittals, change orders — organized and on time." },
 ];
 
+const businessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://tuckerbusinessservices.com/#business",
+  name: "Tucker Business Services",
+  description: "Construction bookkeeping, job costing, estimating support, and consulting built for contractors.",
+  url: "https://tuckerbusinessservices.com",
+  logo: "https://tuckerbusinessservices.com/logo.png",
+  image: "https://tuckerbusinessservices.com/logo.png",
+  telephone: "+1-775-391-0242",
+  email: "info@tuckerbusinessservices.com",
+  priceRange: "$$",
+  areaServed: {
+    "@type": "Country",
+    name: "United States",
+  },
+  knowsAbout: [
+    "Construction bookkeeping",
+    "Contractor bookkeeping",
+    "Job costing",
+    "Accounts payable for contractors",
+    "Accounts receivable for contractors",
+    "Lien waiver tracking",
+    "Construction estimating",
+    "Bid preparation",
+    "Project controls",
+    "Schedule analysis",
+    "Construction consulting",
+    "QuickBooks for contractors",
+    "RFI management",
+    "Submittal management",
+    "Change order tracking",
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Services",
+    itemListElement: services.map((s) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: s.title,
+        description: s.desc,
+      },
+    })),
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+1-775-391-0242",
+    email: "info@tuckerbusinessservices.com",
+    contactType: "customer service",
+    areaServed: "US",
+    availableLanguage: ["English"],
+  },
+};
+
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }}
+      />
+
       {/* Nav */}
       <header className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/70 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="#top" className="flex items-center gap-3 font-display text-base font-bold tracking-tight">
-            <img src={logo} alt="Tucker Business Services" className="h-32 w-32 md:h-40 md:w-40 object-contain" />
+            <img src={logo} alt="Tucker Business Services logo" className="h-32 w-32 md:h-40 md:w-40 object-contain" />
             <span className="hidden sm:inline">Tucker Business Services</span>
           </a>
           <nav className="hidden gap-8 text-sm text-muted-foreground md:flex">
@@ -90,7 +152,7 @@ function Index() {
             <div className="absolute -inset-4 rounded-3xl opacity-50 blur-2xl" style={{ background: "var(--gradient-accent)" }} />
             <img
               src={heroImg}
-              alt="Construction blueprints and financial documents"
+              alt="Construction blueprints, job cost reports, and contractor financial documents on a desk — the back office work Tucker Business Services handles for builders"
               width={1536}
               height={1024}
               className="relative aspect-[4/5] w-full rounded-3xl object-cover"
@@ -118,7 +180,7 @@ function Index() {
               <div key={title} className="group relative overflow-hidden rounded-2xl border border-border bg-card transition hover:bg-secondary">
                 <img
                   src={image}
-                  alt={title}
+                  alt={`${title} for contractors — Tucker Business Services`}
                   width={800}
                   height={600}
                   loading="lazy"
